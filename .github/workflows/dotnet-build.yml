@@ -1,0 +1,25 @@
+name: Atividade do módulo 4
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]  
+  schedule:
+  - cron: '50 20 19 6 1'
+  issues:
+    types:
+      - closed
+  workplow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4.0.0
+      - name: Run a one-line script
+        run: echo Push executado com sucesso
+        # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo Push executado,
+          echo Parabéns.  
